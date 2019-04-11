@@ -20,7 +20,6 @@ class App:
         self.labels()
         self.buttons()
         self.text_widget()
-
         self.mainloop()
 
     def images(self):
@@ -33,7 +32,6 @@ class App:
         self.text_frame.place(relx=0.009, rely=0.52, relwidth=0.83, relheight=0.47)
         self.button_frame = Frame(self.canvas, bg="lightgrey", bd=3, relief="ridge")
         self.button_frame.place(relx=0.84, rely=0.52, relwidth=0.15, relheight=0.47)
-
 
     def buttons(self):
         self.get_information = Button(self.button_frame, text="Get Information", font="Arial 10", bg="darkgrey", relief="ridge", command= lambda: self.get_astro_data())
@@ -60,8 +58,6 @@ class App:
         self.canvas.create_image(155,150, image=self.nasa)
         self.canvas.pack()
 
-
-
     def get_astro_data(self):
         try:
             Nasa_dailyinfo = "https://api.nasa.gov/planetary/apod?api_key=93IbCsql4yIRiHnSej8MEZ8BvMUr0oS4sK7k6mTC"
@@ -73,7 +69,6 @@ class App:
             self.picture_label.configure(image=self.image)
         except:
             self.text_.insert(INSERT, "ERROR COULDNT RECEIVE DATA")
-
 
     def download_picture(self):
         Nasa_dailyinfo = "https://api.nasa.gov/planetary/apod?api_key=93IbCsql4yIRiHnSej8MEZ8BvMUr0oS4sK7k6mTC"
@@ -96,6 +91,5 @@ class App:
 
     def mainloop(self):
         self.root.mainloop()
-
-
+        
 App()
