@@ -13,7 +13,7 @@ class App:
     def __init__(self):
         self.root = ThemedTk()
         self.root.title("Daily Nasa Knowledge App")
-        self.size = 500
+        self.size = 400
         self.root.geometry("650x700")
         ttk.Style().theme_use("black")
         ttk.Style().configure("TButton", font="OpenSans 9 bold", anchor="center", background="#47d1ff", foreground="white")
@@ -39,7 +39,7 @@ class App:
     def labels(self):
         self.picture_label = ttk.Label(self.picture_frame, relief="ridge")
         self.picture_label.place(relx=0.01, rely=0.02, relheight=0.96, relwidth=0.98)
-        self.text_label = ttk.Label(self.text_frame, relief="ridge", wraplength=615, font="OpenSans 13 bold", anchor="nw")
+        self.text_label = ttk.Label(self.text_frame, relief="ridge", wraplength=615, font="OpenSans 10 bold", anchor="nw")
         self.text_label.place(relx=0.01, rely=0.02, relheight=0.96, relwidth=0.98)
 
     def create_buttons(self):
@@ -79,7 +79,7 @@ class App:
         self.picture = r["hdurl"]
         urllib.request.urlretrieve(self.picture, "DailyNasaPicture.png")
         self.text_label.configure(text= "Date: " + r["date"] + " " + "Title: " + r["title"] + "\n" + "Explanation: " + r["explanation"])
-        self.image = ImageTk.PhotoImage(Image.open("DailyNasaPicture.png").resize((self.size, self.size)))
+        self.image = ImageTk.PhotoImage(Image.open("DailyNasaPicture.png").resize((425, 250)))
         self.picture_label.configure(image=self.image)
 
     def mainloop(self):
